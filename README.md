@@ -4,7 +4,7 @@
   </a>
 </p>
 
-# ADHD — a skill for agents
+# Evals for ADHD
 
 [![CI](https://github.com/UditAkhourii/adhd/actions/workflows/ci.yml/badge.svg)](https://github.com/UditAkhourii/adhd/actions/workflows/ci.yml)
 [![npm](https://img.shields.io/npm/v/adhd-agent.svg)](https://www.npmjs.com/package/adhd-agent)
