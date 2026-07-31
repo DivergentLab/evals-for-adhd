@@ -1,0 +1,9 @@
+{
+  "title": "Gigabytes-per-second SIMD Vectorized JSON Parsing",
+  "publication_date": "2019-02-01",
+  "source_url": "https://arxiv.org/abs/1902.08318",
+  "pre_discovery_prompt": "JSON parsing in high-performance native engines is bottlenecked by character-by-character branch mispredictions and sequential state machines. How can CPU vector instructions achieve multi-gigabyte/sec throughput?",
+  "ground_truth_finding": "Two-stage SIMD pipeline: Stage 1 locates structural characters concurrently using bitmasks/SIMD, Stage 2 constructs the DOM tree with minimal branching.",
+  "contamination_risk": "low",
+  "notes_on_reconstruction": "Stripped simdjson project name and author names."
+}

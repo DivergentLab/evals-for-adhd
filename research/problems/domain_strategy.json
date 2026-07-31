@@ -1,0 +1,32 @@
+[
+  {
+    "id": "strategy-incumbent-positioning",
+    "category": "product_strategy",
+    "problem": "Position a new developer-focused database startup against an entrenched open-source incumbent with 80% market share and huge community inertia."
+  },
+  {
+    "id": "strategy-roadmap-prioritization",
+    "category": "product_strategy",
+    "problem": "Prioritize a quarterly product roadmap when enterprise clients demand legacy compliance features while self-serve developer acquisition requires novel viral workflow features."
+  },
+  {
+    "id": "strategy-pricing-tier-shift",
+    "category": "business_strategy",
+    "problem": "Transition a SaaS API product from flat seats/usage pricing to outcome-based or value-based pricing without alienating existing high-volume customers."
+  },
+  {
+    "id": "strategy-open-source-monetization",
+    "category": "business_strategy",
+    "problem": "Design a sustainable commercialization and license strategy for a fast-growing open-source infrastructure tool while keeping the core open-source community trusting and active."
+  },
+  {
+    "id": "strategy-growth-channel-saturation",
+    "category": "growth_strategy",
+    "problem": "Our primary customer acquisition channel (paid search & content marketing) hit a diminishing returns wall. Generate non-obvious acquisition channels for B2B dev tools."
+  },
+  {
+    "id": "strategy-platform-migration-retention",
+    "category": "product_strategy",
+    "problem": "We need to force all users from v1 API to v2 API within 6 months. Design an incentive, tooling, and communication strategy that achieves 95%+ migration with near-zero churn."
+  }
+]

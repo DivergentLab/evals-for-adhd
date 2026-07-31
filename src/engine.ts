@@ -250,7 +250,8 @@ Output JSON: [{"label":"...","ideaIds":["...","..."]}]`;
   });
 
   try {
-    return parseJSON(raw, ClusterSchema);
+    const res = parseJSON(raw, ClusterSchema);
+    return Array.isArray(res) ? res : [];
   } catch {
     return [];
   }
@@ -370,12 +371,17 @@ export async function run(opts: RunOptions): Promise<RunResult> {
   ]);
   for (const i of allIdeas) i.score = scoreMap.get(i.id);
   // Stamp cluster label onto each idea for nicer rendering.
-  for (const c of clusters) for (const id of c.ideaIds) {
-    const idea = allIdeas.find((x) => x.id === id);
-    if (idea) idea.cluster = c.label;
+  const safeClusters = Array.isArray(clusters) ? clusters : [];
+  for (const c of safeClusters) {
+    if (c && Array.isArray(c.ideaIds)) {
+      for (const id of c.ideaIds) {
+        const idea = allIdeas.find((x) => x.id === id);
+        if (idea) idea.cluster = c.label;
+      }
+    }
   }
   onEvent?.({ kind: "score:done", total: allIdeas.length });
-  onEvent?.({ kind: "cluster:done", clusters: clusters.length });
+  onEvent?.({ kind: "cluster:done", clusters: safeClusters.length });
 
   // Shortlist: top by total, excluding traps. Traps reported separately.
   const traps = allIdeas.filter((i) => i.score?.trap);

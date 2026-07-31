@@ -1,0 +1,9 @@
+{
+  "title": "Biguanide AMP-Activated Protein Kinase Activation in Cellular Senescence",
+  "publication_date": "2020-03-01",
+  "source_url": "https://doi.org/10.1016/j.cmet.2020.02.008",
+  "pre_discovery_prompt": "First-line oral anti-diabetic biguanide therapy extends healthy lifespan in animal models and lowers all-cause mortality in diabetic humans beyond non-diabetic controls. What metabolic nutrient-sensing cascade is responsible?",
+  "ground_truth_finding": "Mild inhibition of mitochondrial complex I resulting in elevated AMP/ATP ratio, triggering AMPK activation and downstream mTORC1 inhibition.",
+  "contamination_risk": "high",
+  "notes_on_reconstruction": "Stripped Metformin drug name and specific trial names."
+}

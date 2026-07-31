@@ -1,0 +1,9 @@
+{
+  "title": "Prokaryotic Adaptive Immunity via Clustered Genomic Repeats",
+  "publication_date": "2007-02-23",
+  "source_url": "https://doi.org/10.1126/science.1138140",
+  "pre_discovery_prompt": "Bacterial genomes contain identical 20-40bp interspaced repeat arrays separated by variable spacer sequences matching bacteriophage DNA. What functional physiological role does this system serve?",
+  "ground_truth_finding": "An adaptive immune memory system that transcribes spacer sequences into small RNA guides to direct Cas nuclease cleavage of invading viral DNA.",
+  "contamination_risk": "high",
+  "notes_on_reconstruction": "Stripped CRISPR/Cas9 acronyms and bacterial strain names."
+}

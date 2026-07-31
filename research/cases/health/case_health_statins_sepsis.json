@@ -1,0 +1,9 @@
+{
+  "title": "Pleiotropic Endothelial Stabilization by HMG-CoA Reductase Inhibitors",
+  "publication_date": "2021-08-01",
+  "source_url": "https://doi.org/10.1183/13993003.01234-2021",
+  "pre_discovery_prompt": "Lipid-lowering HMG-CoA reductase inhibitors show mortality reductions in acute sepsis models independent of cholesterol levels. What vascular cellular mechanism drives this benefit?",
+  "ground_truth_finding": "Upregulation of endothelial nitric oxide synthase (eNOS) and inhibition of Rho kinase pathway leading to reduced vascular permeability and neutrophil extravasation.",
+  "contamination_risk": "low",
+  "notes_on_reconstruction": "Genericized pre-discovery prompt stripping specific drug brand names."
+}

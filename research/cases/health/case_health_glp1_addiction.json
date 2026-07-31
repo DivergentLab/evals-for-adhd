@@ -1,0 +1,9 @@
+{
+  "title": "Incretin Mimetic Modulation of Mesolimbic Reward and Substance Use",
+  "publication_date": "2023-05-01",
+  "source_url": "https://doi.org/10.1016/j.cmet.2023.04.001",
+  "pre_discovery_prompt": "Patients treated for glycemic control with gut peptide mimetics spontaneously report decreased alcohol, nicotine, and compulsive reward-seeking behaviors. What central neurological mechanisms explain this?",
+  "ground_truth_finding": "GLP-1 receptors in the ventral tegmental area and nucleus accumbens attenuate dopamine release and mesolimbic reward pathway signaling.",
+  "contamination_risk": "low",
+  "notes_on_reconstruction": "Stripped drug trade names (Ozempic/Wegovy/Semaglutide) and specific study titles."
+}

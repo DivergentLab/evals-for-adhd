@@ -68,6 +68,17 @@ Score both on the rubric. Output JSON of shape:
   "one_line_summary": "..."
 }`;
 
-  const raw = await callLLM({ model, systemPrompt: JUDGE_SYSTEM, userPrompt });
-  return parseJSON<Verdict>(raw);
+  let lastErr: any;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const raw = await callLLM({ model, systemPrompt: JUDGE_SYSTEM, userPrompt });
+      return parseJSON<Verdict>(raw);
+    } catch (err) {
+      lastErr = err;
+      if (attempt < 3) {
+        await new Promise((r) => setTimeout(r, 1000 * attempt));
+      }
+    }
+  }
+  throw lastErr;
 }

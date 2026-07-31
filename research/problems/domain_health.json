@@ -1,0 +1,32 @@
+[
+  {
+    "id": "health-triage-resource-allocation",
+    "category": "public_health",
+    "problem": "Design a hospital emergency department triage and patient allocation framework during a severe seasonal respiratory surge with a 30% nursing shortage."
+  },
+  {
+    "id": "health-medication-adherence-elderly",
+    "category": "health_ux",
+    "problem": "Design an intervention strategy to improve daily chronic medication adherence among elderly patients taking 5+ daily prescriptions, without requiring expensive smart hardware."
+  },
+  {
+    "id": "health-diagnostic-ambiguity-puzzler",
+    "category": "clinical_reasoning",
+    "problem": "A patient presents with persistent fatigue, migratory joint pain, intermittent low-grade fever, and normal routine blood panels. Generate hypothesis classes and differential diagnostic investigation pathways."
+  },
+  {
+    "id": "health-rural-telemedicine-access",
+    "category": "public_health",
+    "problem": "Design a specialist healthcare delivery system for remote rural communities with minimal cellular broadband connectivity and high transportation barriers."
+  },
+  {
+    "id": "health-vaccine-hesitancy-messaging",
+    "category": "health_communications",
+    "problem": "Design a community-level public health communication framework to address vaccine hesitancy in historically mistrustful demographic groups."
+  },
+  {
+    "id": "health-hospital-readmission-prevention",
+    "category": "care_management",
+    "problem": "Design a post-discharge care coordination program for heart failure patients to reduce 30-day hospital readmission rates under tight municipal budget constraints."
+  }
+]

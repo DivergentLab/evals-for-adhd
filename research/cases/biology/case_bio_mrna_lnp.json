@@ -1,0 +1,9 @@
+{
+  "title": "Ionizable Lipid Nanoparticles and Nucleoside Modification for mRNA Therapeutics",
+  "publication_date": "2020-12-01",
+  "source_url": "https://doi.org/10.1038/s41578-020-00261-0",
+  "pre_discovery_prompt": "Exogenous synthetic mRNA injected into living tissue is immediately destroyed by extracellular nucleases and triggers lethal Toll-like receptor innate immune reactions. How can mRNA be safely encapsulated and delivered intact into cytoplasm?",
+  "ground_truth_finding": "Replacement of uridine with N1-methylpseudouridine to bypass TLR detection, combined with ionizable amino lipid nanoparticles that become positively charged at acidic endosomal pH to facilitate cytosolic release.",
+  "contamination_risk": "low",
+  "notes_on_reconstruction": "Stripped Pfizer/BioNTech/Moderna brand names and COVID vaccine terminology."
+}

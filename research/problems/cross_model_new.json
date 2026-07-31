@@ -1,0 +1,32 @@
+[
+  {
+    "id": "event-sourcing-compaction",
+    "category": "distsys",
+    "problem": "Design a log compaction strategy for an event-sourced e-commerce ledger that preserves financial auditability while bounding disk usage."
+  },
+  {
+    "id": "distributed-lock-clock-skew",
+    "category": "systems",
+    "problem": "Design a distributed lock manager that remains safe under extreme VM pause (GC/hypervisor, 30s) and NTP clock drift across cloud regions."
+  },
+  {
+    "id": "multi-tenant-vector-db",
+    "category": "architecture",
+    "problem": "Design an isolation and index-sharing strategy for a multi-tenant vector database serving 10,000 tenants with highly skewed dataset sizes (10 vectors to 10M vectors)."
+  },
+  {
+    "id": "graceful-degradation-payment",
+    "category": "ux/reliability",
+    "problem": "Our checkout API depends on 5 external payment gateways and fraud services. When 2 of them go down or latency spikes to 5s, design a graceful degradation strategy that maximizes conversion without taking unvalidated financial risk."
+  },
+  {
+    "id": "zero-downtime-schema-migration",
+    "category": "refactor",
+    "problem": "Design a zero-downtime database migration strategy for splitting a high-throughput 500GB Postgres orders table into 4 sharded tenant partitions with zero dropped writes."
+  },
+  {
+    "id": "observability-cardinality-explosion",
+    "category": "debugging",
+    "problem": "Metrics collector memory usage spikes 10x during traffic surges due to dynamic metric tag cardinality explosion (e.g. user-agent, target IP). How should we handle/mitigate high-cardinality metric spikes in real-time?"
+  }
+]

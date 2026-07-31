@@ -1,0 +1,9 @@
+{
+  "title": "Decomposable Distributed Consensus Algorithm",
+  "publication_date": "2014-06-01",
+  "source_url": "https://raft.github.io/raft.pdf",
+  "pre_discovery_prompt": "Designing a strong leader-based distributed consensus protocol for replicated log state machines that is easier to understand and reason about than classic multi-Paxos, separating leader election, log replication, and safety.",
+  "ground_truth_finding": "Raft consensus algorithm: explicit randomized leader election, append-only log matching, and term-based safety invariants.",
+  "contamination_risk": "high",
+  "notes_on_reconstruction": "Genericized pre-discovery prompt stripping author names, paper title, and Raft terminology."
+}

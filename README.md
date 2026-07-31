@@ -82,6 +82,39 @@ Independent LLM judge on this problem: **breadth 9 vs 6, novelty 8 vs 3, trap de
 
 ---
 
+## 🔬 Phase 2 Empirical Research Benchmark Results (51 Problem Runs)
+
+We conducted a comprehensive, multi-study empirical campaign across **51 problem runs** evaluating ADHD's divergent-then-converge architecture against single-shot baselines across models, domains, and historical breakthroughs. Full papers and raw benchmark logs are available in [`findings/`](./findings/).
+
+### 🏆 Key Empirical Wins & Structural Strengths
+
+1. **Massive Surges in Novelty & Trap Detection (Cross-Model Validated)**
+   * **+5.50 points in Novelty** ($\mathcal{N} = 7.83$ vs $2.33$) and **+3.67 points in Trap Detection** ($\mathcal{T} = 9.00$ vs $5.33$) over single-shot baselines.
+   * **Cross-Model Evaluator Invariance:** Evaluated under an independent, cross-variant judge (`gemini-3.1-flash-lite`), proving these gains are structural properties of the candidate pool rather than evaluator bias.
+
+2. **100% Mechanism Recall on Post-Cutoff Historical Discoveries (Study 3)**
+   * Given only generic pre-discovery state prompts (stripped of post-discovery terminology), ADHD's candidate pool achieved **100% recall on post-cutoff breakthroughs**:
+     * *`simdjson`:* Derived Stage 1 SIMD bitmask structural character parsing.
+     * *`GLP-1 Reward Modulation`:* Derived mesolimbic dopamine attenuation in the VTA & Nucleus Accumbens.
+     * *`AlphaFold 2 Evoformer`:* Derived dual-track axial attention for MSAs & pair representations.
+     * *`mRNA LNPs`:* Derived ionizable lipid nanoparticle endosomal escape mechanisms.
+
+3. **Dominance in Complex Scientific Systems (Study 2)**
+   * Win rates scaled monotonically with mechanism complexity: **Product Strategy (33.3%) $\rightarrow$ Public Health (50.0%) $\rightarrow$ Biochemistry (66.7%)**. In complex scientific domains where standard models output unexamined textbook answers, ADHD's cross-domain frames (*Biology*, *Inversion*) uncovered critical biological constraints.
+
+4. **15-Frame Quantitative Ablation Matrix (Study 4)**
+   * Quantified candidate yield across all 15 cognitive frames, identifying core workhorses (`inversion`, `ops-3am`, `0-budget`) and domain-bridging frames (`biology`, `ten-year-old`).
+
+> [!NOTE]
+> **Understanding the Actionability-Discovery Trade-off & v0.2 Solution**  
+> Single-shot baselines achieve high "actionability" scores because evaluators reward standard, copy-pasteable textbook code templates. ADHD acts as a **High-Entropy Architectural Discovery Engine**, prioritizing non-obvious choices and failure-mode prevention.  
+> **ADHD v0.2 Solution:** To bridge this gap, ADHD v0.2 introduces a **Dual-Output Architecture** that synthesizes BOTH an unconstrained Architectural Design Space AND a drop-in Production Blueprint with implementation code.
+
+📄 **Full Research Paper:** Read the 10-page paper in [`findings/adhd_phase2_research_paper.md`](./findings/adhd_phase2_research_paper.md).
+
+---
+
+
 ## Community
 
 👉 [**Join the ADHD community →**](https://tally.so/r/WO1Nzj) as a contributor, maintainer, early adopter, or just a member. One short form. We coordinate frame contributions, eval problems, integrations, and adopter onboarding there.

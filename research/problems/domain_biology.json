@@ -1,0 +1,32 @@
+[
+  {
+    "id": "biology-enzyme-thermostability",
+    "category": "biochem_engineering",
+    "problem": "Generate novel structural and evolutionary strategy classes to increase the thermal stability of an industrial bioreactor enzyme by 15°C without compromising catalytic turnover ($k_{cat}$)."
+  },
+  {
+    "id": "biology-synthetic-gene-circuit-noise",
+    "category": "synthetic_biology",
+    "problem": "Design architectural feedback mechanisms to attenuate transcriptional noise and bimodal cell-to-state switching in synthetic genetic memory circuits."
+  },
+  {
+    "id": "biology-microbiome-dysbiosis-restore",
+    "category": "microbiology",
+    "problem": "Propose metabolic and ecological intervention classes to shift a dysbiotic gut microbial community back to homeostasis following broad-spectrum antibiotic ablation."
+  },
+  {
+    "id": "biology-drug-resistance-evasion",
+    "category": "pharmacology",
+    "problem": "Design combination therapy timing and multi-target dosing regimes to prevent evolutionary escape mutations in rapidly dividing tumor cell populations."
+  },
+  {
+    "id": "biology-protein-aggregation-mitigation",
+    "category": "protein_folding",
+    "problem": "Propose molecular chaperone and sequence modification approaches to prevent amyloidogenic protein aggregation in recombinant bilock production systems."
+  },
+  {
+    "id": "biology-cellular-senescence-clearance",
+    "category": "cell_biology",
+    "problem": "Design targeted biological mechanisms to selectively induce apoptosis in senescent cells while leaving healthy surrounding tissue unaffected."
+  }
+]

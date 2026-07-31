@@ -1,0 +1,9 @@
+{
+  "title": "Non-blocking Distributed Global Snapshot Protocol",
+  "publication_date": "1985-02-01",
+  "source_url": "https://doi.org/10.1145/214451.214456",
+  "pre_discovery_prompt": "Determining a global consistent state of an asynchronous distributed system with FIFO channels without stopping computation or forcing global clock synchronization.",
+  "ground_truth_finding": "Marker-passing distributed snapshot algorithm where process state and channel state are recorded upon receiving control markers along channels.",
+  "contamination_risk": "high",
+  "notes_on_reconstruction": "Stripped Chandy-Lamport naming and specific paper citations."
+}
