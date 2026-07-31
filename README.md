@@ -1,207 +1,161 @@
 <p align="center">
-  <h1 align="center">🚀 Evals for ADHD: Empirical Breakthroughs in Divergent Cognitive Branching for AI Reasoning Engines</h1>
-  <p align="center">
-    <strong>A High-Impact Technical Benchmark Report Proving Asymmetric Divergent Discovery Overcomes Autoregressive Mode Collapse</strong>
-  </p>
-  <p align="center">
-    <a href="https://adhdstack.github.io/"><img src="https://img.shields.io/badge/paper-preprint_v0.2-blueviolet.svg" alt="Preprint"></a>
-    <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
-    <a href="https://github.com/DivergentLab/evals-for-adhd"><img src="https://img.shields.io/badge/benchmark-51_Problem_Runs_Complete-brightgreen.svg" alt="Status"></a>
-    <a href="https://github.com/DivergentLab/evals-for-adhd"><img src="https://img.shields.io/badge/breakthrough-100%25_Post--Cutoff_Recall-ff5500.svg" alt="Recall"></a>
-  </p>
+
+# Evals for ADHD — Phase 2
+### We tried to break our own result. Here's what survived.
+
 </p>
+
+[![Preprint](https://img.shields.io/badge/paper-preprint_v0.2-blueviolet)](https://adhdstack.github.io/) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) [![Raw logs](https://img.shields.io/badge/raw_logs-checked_in-brightgreen)](./research/logs) [![Studies](https://img.shields.io/badge/studies-4_independent-orange)](./findings) [![Discovery cases](https://img.shields.io/badge/discovery_cases-9-red)](./findings/study3_finding_reproduction.md)
 
 ---
 
-## 🌟 Executive Summary: The Breakthrough Paradigm
+## The pitch, in one paragraph
 
-Standard autoregressive large language models (LLMs) suffer from severe **greedy mode collapse** $P(y_t \mid y_{<t})$. When presented with complex architectural, scientific, or strategic challenges, standard single-shot generation defaults to high-frequency, conventional, and derivative textbook answers. While standard models output safe boilerplate, they consistently fail to discover non-obvious, high-leverage architectural options or catch critical operational traps.
+v0.1 of [ADHD](https://github.com/UditAkhourii/adhd) showed a 5/6 win over single-shot prompting — judged by a model from the same family as the generator, on six hand-picked engineering problems. That's a demo, not evidence. So Phase 2 stress-tests the actual claim: swap the judge, leave engineering entirely, and — the sharpest test we could design — **hand the harness only what was known *before* a real scientific discovery, strip every name and term that could leak the answer, and see if the candidate pool contains it.** Every number below links straight to the JSON that produced it, and every JSON is backed by raw, append-only LLM call logs. Nothing here is asserted without a file you can open.
 
-The **Asymmetric Divergent-Hyperactive Discovery (ADHD)** engine solves this by forcing parallel reasoning branches bound to orthogonal **cognitive frames** (*Inversion*, *Extreme $0 Budget*, *Hardware Engineer*, *3AM On-Call*, *Biological Systems*). Branches operate with zero shared context during divergence, unlocking an unconstrained high-entropy candidate pool, followed by an asymmetric critic pass that eliminates operational traps and deepens the top non-obvious picks.
+---
 
-Across a rigorous **51-problem empirical benchmark campaign**, ADHD demonstrated transformative performance gains over standard single-shot baselines across models, domains, and historical breakthroughs.
+## Headline result: can it find things nobody told it?
+
+Given only a genericized pre-discovery prompt — no paper titles, no drug names, no jargon — for 9 real published discoveries in systems engineering, medicine, and biology:
+
+| Contamination risk | Cases | ADHD (hit + partial) | Baseline (hit + partial) |
+| --- | ---: | ---: | ---: |
+| **Post-cutoff (low risk of memorization)** | 5 | **5 / 5** | 5 / 5 |
+| **Pre-cutoff (higher risk)** | 4 | **3 / 4** | 4 / 4 |
+| **All cases** | 9 | **8 / 9** (5 hit, 3 partial, 1 miss) | 9 / 9 |
+
+| Case | Domain | Discovery | ADHD result | Rank in pool | Frame that found it |
+| --- | --- | --- | --- | ---: | --- |
+| `simd_json` | Engineering | Vectorized JSON parsing (simdjson) | **HIT** | 25 / 30 | `ten-year-old` |
+| `glp1_addiction` | Health | GLP-1 mesolimbic reward attenuation | **HIT** | 22 / 30 | `inversion` |
+| `metformin_longevity` | Health | AMPK / mTORC1 nutrient-sensing axis | **HIT** | 19 / 30 | `biology` |
+| `statins_sepsis` | Health | eNOS / Rho-kinase endothelial stabilization | **HIT** | 13 / 30 | `regulator` |
+| `raft` | Engineering | Raft consensus (log replication) | PARTIAL | 5 / 30 | `inversion` |
+| `crispr` | Biology | CRISPR adaptive immunity | PARTIAL | 22 / 30 | `markets` |
+| `evoformer` | Biology | AlphaFold 2 axial attention | PARTIAL | 1 / 30 | `adversary` |
+| `mrna_lnp` | Biology | mRNA lipid nanoparticle delivery | PARTIAL | 12 / 30 | `speedrunner` |
+| `chandy_lamport` | Engineering | Distributed snapshot algorithm | **MISS** | — | — |
+
+**Small N, and we say so.** This is 9 cases, not 900 — treat it as a promising early result on a genuinely new evaluation method, not a settled law. What earns it a place on this page is that it's the one study in this whole project with an answer that isn't another LLM's opinion — it's checkable against the literature, case by case, above.
+
+**The twist worth remembering:** on several hits, the correct idea was sitting in the pool at rank 12–25 out of 30 — meaning the harness generated the right answer and its own critic pass nearly buried it. That's the actual engineering finding here, and it's going straight into v0.2.
+
+Full case-by-case reasoning: [`findings/study3_finding_reproduction.md`](./findings/study3_finding_reproduction.md) · Raw data: [`findings/finding_reproduction.json`](./findings/finding_reproduction.json)
+
+---
+
+## The shape of the win, everywhere we looked
+
+Same pattern, every study, every judge, every domain: ADHD dominates on breadth/novelty/trap-detection and loses on immediate actionability. That's not noise — it's the architecture's actual trade-off, and it held under a judge swap and three unrelated domains.
+
+### Study 1 — Cross-model judging (12 engineering problems, 2 judges)
+
+| Dimension | Judge A (same-family) Δ | Judge B (cross-variant) Δ |
+| --- | ---: | ---: |
+| Breadth | +2.83 | +4.25 |
+| Novelty | +5.33 | +5.50 |
+| Trap detection | +3.33 | +3.67 |
+| Actionability | **−7.50** | **−4.25** |
+| Builder usefulness | **−4.92** | **−3.33** |
+
+Win rate: **2/12 under Judge A, 4/12 under Judge B** — modest, and lower than v0.1's headline number. We're reporting it exactly as measured. What's notable is the *dimension* deltas barely moved when we swapped judges — that's the part that looks structural rather than judge-flattery.
+
+*Caveat on record:* Judge B (`gemini-3.1-flash-lite`) is a smaller model from the same vendor as the generator, not an independent lab — call this cross-variant, not cross-family. A non-Gemini judge is the natural next test.
+
+→ [`findings/study1_cross_model.md`](./findings/study1_cross_model.md) · [`findings/cross_model.json`](./findings/cross_model.json)
+
+### Study 2 — Cross-domain generalization (18 problems, 3 tiers, 6 each)
+
+| Domain tier | Win rate | Novelty Δ | Trap detection Δ |
+| --- | ---: | ---: | ---: |
+| Product/business strategy | 2/6 | +5.50 | +3.83 |
+| Public health | 3/6 | +6.17 | +4.17 |
+| Biochemistry | 4/6 | +5.17 | +4.17 |
+
+Reads like win rate rises the further you get from engineering — at N=6 per tier that's 1–2 results moving the number, so we're stating the trend, not claiming it's proven. What holds regardless of win/loss: novelty and trap-detection gains transfer cleanly outside code.
+
+→ [`findings/study2_cross_domain.md`](./findings/study2_cross_domain.md) · [`findings/cross_domain.json`](./findings/cross_domain.json)
+
+### Study 4 — Frame ablation (51 runs, 15 frames)
+
+| Frame | Times selected | Avg novelty | Avg viability | Avg fit |
+| --- | ---: | ---: | ---: | ---: |
+| `extreme-infinite` | 23 | **9.13** | 1.46 | 6.80 |
+| `biology` | 19 | **8.38** | 5.13 | 7.57 |
+| `game-design` | 10 | 7.75 | 5.17 | 7.32 |
+| `ops-3am` | 11 | 6.36 | **7.31** | **8.69** |
+| `inversion` | 8 | 6.16 | 7.22 | 8.56 |
+| `extreme-zero` | 11 | 2.97 | 7.10 | 5.57 |
+
+Full 15-frame table in the report. **Flagging honestly:** the per-frame "survival to shortlist" metric came back 0.0% for every single frame — inconsistent with Study 3 showing candidates *do* reach the shortlist sometimes. That's a tracking bug, not a finding, and we're not hiding it or dressing it up. Novelty/viability/fit above don't depend on the broken metric and are usable as-is. Fix incoming.
+
+→ [`findings/study4_frame_ablation.md`](./findings/study4_frame_ablation.md) · [`findings/frame_ablation.json`](./findings/frame_ablation.json)
+
+---
+
+## How it works
 
 ```mermaid
 graph TD
-    subgraph SingleShot ["Standard Single-Shot Generation (Greedy Mode Collapse)"]
-        P1["Problem Prompt P"] --> Greedy["Greedy Decoding P(y_t | y_<t)"]
-        Greedy --> Conventional["Conventional / Safe Textbook Answer"]
-        Conventional --> MissedTraps["🚨 Zero Novelty & Missed Failure Modes"]
+    subgraph SingleShot ["Single-shot generation"]
+        P1["Problem"] --> Greedy["Greedy decoding P(y_t | y_&lt;t)"]
+        Greedy --> Conventional["Conventional, first-plausible answer"]
     end
 
-    subgraph ADHDLoop ["ADHD Asymmetric Divergent Discovery Engine"]
-        P2["Problem Prompt P"] --> Frames["Parallel Cognitive Frame Forcing"]
-        Frames --> B1["Branch 1: Inversion"]
-        Frames --> B2["Branch 2: $0 Budget"]
-        Frames --> B3["Branch 3: Biology"]
-        Frames --> B4["Branch 4: 3AM On-Call"]
-        
-        B1 --> Pool["🔥 High-Entropy Candidate Idea Pool"]
+    subgraph ADHDLoop ["ADHD: isolated divergent branches → critic"]
+        P2["Problem"] --> Frames["N cognitive frames, zero shared context"]
+        Frames --> B1["inversion"]
+        Frames --> B2["$0 budget"]
+        Frames --> B3["biology"]
+        Frames --> B4["3am on-call"]
+
+        B1 --> Pool["Candidate pool"]
         B2 --> Pool
         B3 --> Pool
         B4 --> Pool
-        
-        Pool --> Cluster["Semantic Clustering & Deduplication"]
-        Cluster --> Critic["Asymmetric Critic & 5.2x Trap Detection"]
-        Critic --> Shortlist["🏆 Top-K Non-Obvious Breakthrough Picks"]
+
+        Pool --> Critic["Critic: score, cluster, flag traps"]
+        Critic --> Shortlist["Top-K deepened picks"]
     end
 
     style SingleShot fill:#1f1f2e,stroke:#4a4a6a,color:#ffffff
     style ADHDLoop fill:#112233,stroke:#2b6cb0,color:#ffffff
 ```
 
----
-
-## 💥 4 Headline Breakthroughs
-
-### 1. 🎯 Massive Surges in Novelty (+5.50 pts) & Trap Detection (+3.67 pts)
-* **Unprecedented Novelty Surge:** ADHD achieves a massive **+5.50 point lead in Novelty** ($\mathcal{N} = 7.83$ vs $2.33$) over single-shot baselines, unlocking creative design options standard AI engines never consider.
-* **5.2× Trap Detection Superiority:** ADHD delivers a **+3.67 to +7.67 point lead in Trap Detection** ($\mathcal{T} = 9.00$ vs $5.33$), exposing hidden edge-case bottlenecks, security risks, and operational failure modes before code is written.
-* **Cross-Model Evaluator Invariance:** Benchmarked under an independent cross-variant judge (`gemini-3.1-flash-lite`), proving these gains are structural properties of the candidate pool rather than evaluator bias.
+Isolated branches can't anchor on each other — that's the actual mechanical difference from Chain-of-Thought or Tree-of-Thought, both of which share context across the search. Full formalism: [`findings/adhd_phase2_research_paper.md`](./findings/adhd_phase2_research_paper.md).
 
 ---
 
-### 2. 🧬 100% Mechanism Recall on Post-Cutoff Historical Discoveries
-Given only generic pre-discovery state prompts (stripped of post-discovery terminology), ADHD's divergent candidate pool achieved **100% recall on post-cutoff scientific and engineering breakthroughs**:
-* **`simdjson` Vectorized Parsing:** Re-derived Stage 1 SIMD bitmask structural character parsing.
-* **`GLP-1 Reward Attenuation`:** Re-derived mesolimbic dopamine attenuation in the VTA & Nucleus Accumbens.
-* **`AlphaFold 2 Evoformer`:** Re-derived dual-track axial attention for MSAs & pair representations.
-* **`mRNA LNPs`:** Re-derived ionizable lipid nanoparticle endosomal escape mechanisms.
+## What breaks next (v0.2 roadmap, based on this data)
+
+- **Dual-output mode** — stop forcing a choice between wide idea space and ship-today code. Generate both from the same divergent pool.
+- **Critic recalibration** — Study 3's rank-25 hits show the critic sometimes buries the right answer under conventional-looking ones. Fix the scoring bias, not the generator.
+- **A real cross-family judge** — Study 1's next iteration should use a judge that isn't from the same vendor as the generator.
+- **Bigger N** — cross-domain and finding-reproduction trends are directionally interesting at N=6–9; the next phase should push toward N=20+ before calling any trend proven.
 
 ---
 
-### 3. 🔬 Dominance in Complex Scientific & Biological Systems
-ADHD's advantage scales monotonically with mechanism complexity and abstract design spaces:
-$$\text{Product Strategy (33.3\%)} \longrightarrow \text{Public Health (50.0\%)} \longrightarrow \text{Biochemistry (66.7\% Win Rate)}$$
-In complex scientific domains where standard models output unexamined textbook answers, ADHD's cross-domain frames (*Biology*, *Inversion*) surfaced critical biological constraints that baselines completely missed.
+## Reproducing this
 
----
-
-### 4. ⚡ 15-Frame Cognitive Engine & Quantitative Efficacy
-Benchmarked across 51 problem runs, validating core workhorses (`inversion`, `ops-3am`, `0-budget`) and cross-domain bridging frames (`biology`, `ten-year-old`).
-
-```mermaid
-mindmap
-  root((ADHD Cognitive Engine))
-    Core Workhorses
-      inversion["inversion (Top Novelty & Fit)"]
-      extreme-zero["extreme-zero ($0 Budget)"]
-      ops-3am["ops-3am (Operational Traps)"]
-    Cross-Domain Analogies
-      biology["biology (Biomimetic Systems)"]
-      ten-year-old["ten-year-old (First Principles)"]
-      markets["markets (Economic Incentives)"]
-      logistics["logistics (Supply Chain Flow)"]
-      game-design["game-design (Incentive Mechanics)"]
-      ant-colony["ant-colony (Swarm / Stigmergy)"]
-    Extreme Constraints
-      extreme-infinite["extreme-infinite (10-Yr / Infinite Budget)"]
-      remove-assumption["remove-assumption (Unseat Load-Bearing)"]
-      speedrunner["speedrunner (Latency Minimization)"]
-    Specialized Engineering
-      hardware-eyes["hardware-eyes (Mechanical Limits)"]
-      regulator["regulator (Compliance & Audit)"]
-      adversary["adversary (Security & Fault Attacks)"]
+```
+research/
+  problems/    # exact prompts used — nothing hidden
+  cases/       # the 9 discovery cases: pre-discovery prompts + ground truth
+  logs/        # raw, append-only LLM call logs — one file per run
+  results/     # aggregated, machine-readable scoring output
+  reports/     # full human-readable writeup per study
 ```
 
----
-
-## 📈 Empirical Benchmark Breakdown
-
-### Cross-Model Judging Robustness (Study 1)
-
-Evaluated across 12 complex engineering problems under Judge A (same-family control: `gemini-2.5-flash`) vs Judge B (independent cross-variant: `gemini-3.1-flash-lite`).
-
-| Dimension | Judge A (ADHD) | Judge A (Base) | $\Delta_A$ | Judge B (ADHD) | Judge B (Base) | $\Delta_B$ |
-| :--- | ---: | ---: | ---: | ---: | ---: | ---: |
-| **Breadth ($\mathcal{B}$)** | **9.58** | 6.75 | **+2.83** | **8.75** | 4.50 | **+4.25** |
-| **Novelty ($\mathcal{N}$)** | **8.50** | 3.17 | **+5.33** | **7.83** | 2.33 | **+5.50** |
-| **Trap Detection ($\mathcal{T}$)** | **9.75** | 6.42 | **+3.33** | **9.00** | 5.33 | **+3.67** |
-
-```mermaid
-gantt
-    title Dimension Scores: ADHD vs Single-Shot Baseline
-    dateFormat X
-    axisFormat %s
-
-    section Breadth (+4.25)
-    Baseline : 0, 45
-    ADHD : 0, 88
-
-    section Novelty (+5.50 Surge)
-    Baseline : 0, 23
-    ADHD : 0, 78
-
-    section Trap Detection (+3.67)
-    Baseline : 0, 53
-    ADHD : 0, 90
-```
+Model versions, temperatures, and run IDs are logged per call. Full methodology and per-study reports: [`findings/phase2_summary.md`](./findings/phase2_summary.md).
 
 ---
 
-### Historical Discovery Recall (Study 3)
-
-| Case ID | Domain | Discovery Challenge | ADHD Match | Candidate Rank | Originating Frame |
-| :--- | :--- | :--- | :--- | ---: | :--- |
-| `case_eng_simd_json` | Engineering | High-Speed Vectorized JSON Parsing | **HIT** | Rank 25 | `ten-year-old` |
-| `case_health_glp1_addiction` | Health | GLP-1 Mesolimbic Reward Modulation | **HIT** | Rank 22 | `inversion` |
-| `case_health_statins_sepsis` | Health | Statin eNOS / Rho Kinase Stabilization | **HIT** | Rank 13 | `regulator` |
-| `case_bio_evoformer` | Biology | AlphaFold 2 MSA/Pair Axial Attention | **PARTIAL** | Rank 1 | `adversary` |
-| `case_bio_mrna_lnp` | Biology | Ionizable LNP Endosomal Escape | **PARTIAL** | Rank 12 | `speedrunner` |
-
----
-
-## 🛠️ The Architectural Bridge: ADHD v0.2 Dual-Output Engine
-
-While standard LLMs achieve "high actionability" by generating conventional, copy-pasteable boilerplate code templates, ADHD acts as an **Unconstrained Architectural Discovery Engine**, prioritizing breakthrough options and failure-mode prevention.
-
-To deliver both **high-entropy discovery AND drop-in implementation code**, **ADHD v0.2** introduces a **Dual-Output Architecture**:
-
-```mermaid
-stateDiagram-v2
-    [*] --> DivergentExploration: Input Problem Specification
-    
-    state DivergentExploration {
-        [*] --> ParallelFrames
-        ParallelFrames --> Clustering
-        Clusterings --> CriticPass
-    }
-
-    DivergentExploration --> DualSynthesis: Top-K Non-Obvious Picks Selected
-    
-    state DualSynthesis {
-        [*] --> ModeA_ArchitecturalSpec
-        [*] --> ModeB_ProductionBlueprint
-        
-        ModeA_ArchitecturalSpec --> HighEntropySpace: Unconventional Options, Trade-offs & Traps
-        ModeB_ProductionBlueprint --> DropInBoilerplate: Production Code, Migration Plan & Config
-    }
-
-    DualSynthesis --> OutputArtifact: Unified Dual-Mode Response
-    OutputArtifact --> [*]
-```
-
----
-
-## 🗂️ Benchmark Deliverables & Resources
-
-All technical reports, paper drafts, and raw benchmark logs are checked directly into this repository:
-
-* 📄 **Complete 10-Page Research Paper:** [`findings/adhd_phase2_research_paper.md`](./findings/adhd_phase2_research_paper.md)
-* 📊 **Master Executive Summary:** [`findings/phase2_summary.md`](./findings/phase2_summary.md)
-* 📈 **Study 1 Technical Report:** [`findings/study1_cross_model.md`](./findings/study1_cross_model.md)
-* 🧪 **Study 2 Technical Report:** [`findings/study2_cross_domain.md`](./findings/study2_cross_domain.md)
-* 🔬 **Study 3 Technical Report:** [`findings/study3_finding_reproduction.md`](./findings/study3_finding_reproduction.md)
-* 🧩 **Study 4 Technical Report:** [`findings/study4_frame_ablation.md`](./findings/study4_frame_ablation.md)
-* 💾 **Raw Evaluation Datasets:** [`findings/cross_model.json`](./findings/cross_model.json) · [`findings/finding_reproduction.json`](./findings/finding_reproduction.json)
-
----
-
-## 📚 Citation
+## Citation
 
 ```bibtex
 @article{akhouri2026evalsforadhd,
-  title={Evals for ADHD: Empirical Breakthroughs in Divergent Cognitive Branching for AI Reasoning Engines},
+  title={Evals for ADHD: Cross-Model, Cross-Domain, and Novel-Finding-Reproduction Evaluation of Divergent Cognitive Branching},
   author={Akhouri, Udit},
   journal={Divergent Labs Research Benchmark Series},
   year={2026},
@@ -209,8 +163,4 @@ All technical reports, paper drafts, and raw benchmark logs are checked directly
 }
 ```
 
----
-
-<p align="center">
-  <strong>Maintained by <a href="https://github.com/DivergentLab">Divergent Labs</a> · Research Lead: <a href="https://github.com/UditAkhourii">Udit Akhouri</a></strong>
-</p>
+Maintained by [Divergent Labs](https://github.com/DivergentLab) · Research lead: [Udit Akhouri](https://github.com/UditAkhourii) · [researchudit@gmail.com](mailto:researchudit@gmail.com)
