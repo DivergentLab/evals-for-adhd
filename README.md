@@ -149,6 +149,8 @@ research/
 
 Model versions, temperatures, and run IDs are logged per call. Full methodology and per-study reports: [`findings/phase2_summary.md`](./findings/phase2_summary.md).
 
+Want to check a number yourself, or re-run a study from scratch (install steps, API keys, caching behavior, and an honest note on LLM nondeterminism included)? See [`REPRODUCE.md`](./REPRODUCE.md).
+
 ---
 
 ## Citation
