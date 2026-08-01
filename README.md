@@ -15,6 +15,22 @@ v0.1 of [ADHD](https://github.com/UditAkhourii/adhd) showed a 5/6 win over singl
 
 ---
 
+## 💡 The Core Architectural Mechanism: Structured Divergence vs. Automated Convergence (#1 Winner Selection)
+
+**ADHD is NOT a naive "Best-of-30" or Pass@30 random sampling method.**
+
+* **Naive Pass@N Sampling:** Runs temperature sampling 30 times on the same prompt. All 30 samples suffer from **mode collapse**, clustering in the same high-frequency textbook region (e.g., 30 minor variations of standard retry loops).
+* **ADHD Structured Divergence:** Spawns 5 **orthogonally forced cognitive frames** (*Inversion*, *$0 Budget*, *Hardware Engineer*, *Biology*, *3AM On-Call*), guaranteeing coverage across 5 distinct topological design sectors.
+* **Automated Convergence Engine:** The 30 candidate ideas represent **internal test-time compute** (similar to internal reasoning tokens in System 2 search like DeepSeek-R1 or OpenAI o1). The user or agent **never reads 30 raw guesses**. ADHD's automated Critic Engine clusters redundant angles, prunes operational traps, and **converges down into 1 single non-obvious architecture recommendation** (backed by a top-3 shortlist & trap list).
+
+| Paradigm | Search Mechanism | Diversity Engine | What the User/Agent Receives |
+| :--- | :--- | :--- | :--- |
+| **Naive Pass@N** | Random $T=1.0$ sampling | Unconstrained random drift | 30 redundant variations of the same safe answer |
+| **System 2 (o1 / R1)** | Sequential verification depth | Longer reasoning traces | Single verified solution along 1 trajectory |
+| **ADHD Framework** | **Parallel Frame Divergence + Critic Convergence** | **5 Enforced Cognitive Topologies** | **1 Selected Non-Obvious Winner + Pruned Trap List** |
+
+---
+
 ## Headline result: can it find things nobody told it?
 
 Given only a genericized pre-discovery prompt — no paper titles, no drug names, no jargon — for 9 real published discoveries in systems engineering, medicine, and biology:

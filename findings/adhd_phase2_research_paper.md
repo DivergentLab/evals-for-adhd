@@ -77,7 +77,21 @@ Let $\mathcal{P}$ denote the input problem specification. The ADHD engine operat
 4. **Critic & Trap Detection Filter:** A critic pass evaluates each candidate $I_c$ across Novelty $\mathcal{N}(I_c)$, Viability $\mathcal{V}(I_c)$, and Problem Fit $\mathcal{F}(I_c)$, while explicitly identifying operational traps $\mathcal{T}(I_c)$:
    $$\text{Score}(I_c) = w_1 \mathcal{N}(I_c) + w_2 \mathcal{V}(I_c) + w_3 \mathcal{F}(I_c) - \lambda \mathcal{T}(I_c)$$
 
-5. **Top-$K$ Deepening & Synthesis:** The top-$K$ scoring candidates ($K=3$) are deepened into fully developed architectural specifications or strategic blueprints $\mathcal{D}(I_{1:K})$.
+5. **Top-$K$ Deepening & Synthesis:** The top-$K$ scoring candidates ($K=3$) are deepened into fully developed architectural specifications or strategic blueprints $\mathcal{D}(I_{1:K})$, yielding **1 primary non-obvious winner recommendation**.
+
+### 2.2 Distinguishing Structured Divergent Search from Naive Pass@N
+
+A critical conceptual distinction must be drawn between **ADHD's Divergent-Convergent Search** and naive **Best-of-$N$ / Pass@$N$ temperature sampling**:
+
+* **Naive Pass@$N$ Sampling:** Repeatedly samples $N$ completions from $P(y_t \mid y_{<t}, \mathcal{P})$ at temperature $T \ge 1.0$. Because all samples originate from the same unconstrained prompt state, they suffer from severe **mode collapse**, producing $N$ minor syntactic variations of the same conventional answer.
+* **ADHD Structured Divergent Search:** Enforces $M$ orthogonally constrained cognitive topologies $\mathcal{F}_{\text{run}}$, forcing the LLM to traverse structurally distinct design sectors (*Inversion*, *Hardware Limits*, *$0 Budget*, *Biomimicry*, *Operational Traps*).
+* **Automated Convergence (#1 Winner Selection):** The $M \times N = 30$ candidate pool represents **internal test-time divergence compute** (analogous to internal reasoning tokens in System 2 search like DeepSeek-R1 or OpenAI o1). The user or agent **never receives 30 raw guesses**. The automated Critic Engine prunes operational traps, clusters redundant angles, and **converges down to a single #1 non-obvious architectural recommendation**.
+
+| Search Paradigm | Divergence Mechanism | Entropy Engine | Output Delivered to Agent |
+| :--- | :--- | :--- | :--- |
+| **Naive Pass@$N$** | Random $T=1.0$ temperature sampling | Unconstrained random drift | $N$ redundant variations of standard textbook answers |
+| **System 2 (o1 / R1)** | Sequential verification depth | Longer internal reasoning traces | Single verified solution along 1 primary trajectory |
+| **ADHD Framework** | **Parallel Frame Divergence + Critic Convergence** | **$M$ Enforced Cognitive Topologies** | **1 Selected Non-Obvious Winner + Pruned Trap List** |
 
 ```mermaid
 sequenceDiagram
