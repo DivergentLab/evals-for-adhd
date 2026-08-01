@@ -22,19 +22,19 @@ Given only a genericized pre-discovery prompt — no paper titles, no drug names
 | Contamination risk | Cases | ADHD (hit + partial) | Baseline (hit + partial) |
 | --- | ---: | ---: | ---: |
 | **Post-cutoff (low risk of memorization)** | 5 | **5 / 5** | 5 / 5 |
-| **Pre-cutoff (higher risk)** | 4 | **3 / 4** | 4 / 4 |
-| **All cases** | 9 | **8 / 9** (5 hit, 3 partial, 1 miss) | 9 / 9 |
+| **Pre-cutoff (higher risk)** | 4 | **2 / 4** | 4 / 4 |
+| **All cases** | 9 | **7 / 9** (3 hit, 4 partial, 2 miss) | 9 / 9 |
 
 | Case | Domain | Discovery | ADHD result | Rank in pool | Frame that found it |
 | --- | --- | --- | --- | ---: | --- |
 | `simd_json` | Engineering | Vectorized JSON parsing (simdjson) | **HIT** | 25 / 30 | `ten-year-old` |
 | `glp1_addiction` | Health | GLP-1 mesolimbic reward attenuation | **HIT** | 22 / 30 | `inversion` |
-| `metformin_longevity` | Health | AMPK / mTORC1 nutrient-sensing axis | **HIT** | 19 / 30 | `biology` |
 | `statins_sepsis` | Health | eNOS / Rho-kinase endothelial stabilization | **HIT** | 13 / 30 | `regulator` |
 | `raft` | Engineering | Raft consensus (log replication) | PARTIAL | 5 / 30 | `inversion` |
 | `crispr` | Biology | CRISPR adaptive immunity | PARTIAL | 22 / 30 | `markets` |
 | `evoformer` | Biology | AlphaFold 2 axial attention | PARTIAL | 1 / 30 | `adversary` |
 | `mrna_lnp` | Biology | mRNA lipid nanoparticle delivery | PARTIAL | 12 / 30 | `speedrunner` |
+| `metformin_longevity` | Health | AMPK / mTORC1 nutrient-sensing axis | **MISS** | — | — |
 | `chandy_lamport` | Engineering | Distributed snapshot algorithm | **MISS** | — | — |
 
 **Small N, and we say so.** This is 9 cases, not 900 — treat it as a promising early result on a genuinely new evaluation method, not a settled law. What earns it a place on this page is that it's the one study in this whole project with an answer that isn't another LLM's opinion — it's checkable against the literature, case by case, above.
@@ -79,16 +79,27 @@ Reads like win rate rises the further you get from engineering — at N=6 per ti
 
 ### Study 4 — Frame ablation (51 runs, 15 frames)
 
-| Frame | Times selected | Avg novelty | Avg viability | Avg fit |
-| --- | ---: | ---: | ---: | ---: |
-| `extreme-infinite` | 23 | **9.13** | 1.46 | 6.80 |
-| `biology` | 19 | **8.38** | 5.13 | 7.57 |
-| `game-design` | 10 | 7.75 | 5.17 | 7.32 |
-| `ops-3am` | 11 | 6.36 | **7.31** | **8.69** |
-| `inversion` | 8 | 6.16 | 7.22 | 8.56 |
-| `extreme-zero` | 11 | 2.97 | 7.10 | 5.57 |
+| Frame | Times selected | Survival rate | Avg novelty | Avg viability | Avg fit |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `ops-3am` | 11 | **25.8%** | 6.36 | **7.31** | **8.69** |
+| `adversary` | 10 | **23.3%** | 6.02 | **7.26** | **8.26** |
+| `speedrunner` | 11 | **21.2%** | 6.60 | 6.65 | 8.16 |
+| `inversion` | 8 | **18.8%** | 6.16 | **7.22** | **8.56** |
+| `ant-colony` | 13 | **12.8%** | 7.32 | 5.42 | 6.90 |
+| `game-design` | 10 | **11.7%** | 7.75 | 5.17 | 7.32 |
+| `biology` | 19 | **11.1%** | **8.38** | 5.13 | 7.57 |
+| `regulator` | 15 | **11.1%** | 5.98 | **7.10** | **7.88** |
+| `markets` | 18 | **9.3%** | 7.58 | 4.59 | 6.65 |
+| `remove-assumption` | 12 | **8.3%** | 7.14 | 5.59 | 7.69 |
+| `logistics` | 11 | **7.6%** | 6.14 | 6.76 | 7.67 |
+| `hardware-eyes` | 20 | **6.7%** | 7.33 | 4.81 | 7.57 |
+| `ten-year-old` | 5 | **3.3%** | 6.45 | 4.97 | 7.10 |
+| `extreme-zero` | 11 | **3.0%** | 2.97 | **7.10** | 5.57 |
+| `extreme-infinite` | 23 | **0.7%** | **9.13** | 1.46 | 6.80 |
 
-Full 15-frame table in the report. **Flagging honestly:** the per-frame "survival to shortlist" metric came back 0.0% for every single frame — inconsistent with Study 3 showing candidates *do* reach the shortlist sometimes. That's a tracking bug, not a finding, and we're not hiding it or dressing it up. Novelty/viability/fit above don't depend on the broken metric and are usable as-is. Fix incoming.
+Top survival drivers are pragmatic, risk-hunting operational frames (`ops-3am`, `adversary`, `speedrunner`, `inversion`), while speculative frames (`extreme-infinite`, `extreme-zero`) drive extreme novelty at the cost of survival.
+
+→ [`findings/study4_frame_ablation.md`](./findings/study4_frame_ablation.md) · [`findings/frame_ablation.json`](./findings/frame_ablation.json)
 
 → [`findings/study4_frame_ablation.md`](./findings/study4_frame_ablation.md) · [`findings/frame_ablation.json`](./findings/frame_ablation.json)
 

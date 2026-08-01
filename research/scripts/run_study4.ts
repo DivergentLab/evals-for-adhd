@@ -80,8 +80,16 @@ async function main() {
     const raw = record.adhdRawResult;
     if (!raw || !raw.branches) continue;
 
-    const shortlistIds = new Set((raw.shortlist || []).map((i: any) => i.id));
-    const trapIds = new Set((raw.traps || []).map((i: any) => i.id));
+    // Collect all ideas across branches in this run to determine top-3 survivors by score
+    const allRunIdeas: any[] = [];
+    for (const branch of raw.branches) {
+      for (const idea of branch.ideas || []) {
+        allRunIdeas.push({ ...idea, frameId: branch.frameId });
+      }
+    }
+
+    allRunIdeas.sort((a, b) => ((b.score && b.score.total) || 0) - ((a.score && a.score.total) || 0));
+    const top3Ids = new Set(allRunIdeas.slice(0, 3).map((i: any) => i.id));
 
     for (const branch of raw.branches) {
       const fId = branch.frameId;
@@ -107,8 +115,8 @@ async function main() {
         entry.ideas++;
         entry.ideaTexts.push(idea.text);
 
-        if (shortlistIds.has(idea.id)) entry.survived++;
-        if (trapIds.has(idea.id)) entry.traps++;
+        if (top3Ids.has(idea.id)) entry.survived++;
+        if (idea.score && idea.score.trap) entry.traps++;
 
         if (idea.score) {
           entry.noveltySum += idea.score.novelty || 0;

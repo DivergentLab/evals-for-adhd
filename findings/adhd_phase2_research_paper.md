@@ -272,7 +272,7 @@ flowchart TD
 | `case_eng_raft` | Engineering | High | **PARTIAL** | Rank 5 | `inversion` | HIT |
 | `case_eng_simd_json` | Engineering | Low | **HIT** | Rank 25 | `ten-year-old` | HIT |
 | `case_health_glp1_addiction` | Health | Low | **HIT** | Rank 22 | `inversion` | HIT |
-| `case_health_metformin_longevity`| Health | High | **HIT** | Rank 19 | `biology` | HIT |
+| `case_health_metformin_longevity`| Health | High | **MISS** | - | - | HIT |
 | `case_health_statins_sepsis` | Health | Low | **HIT** | Rank 13 | `regulator` | PARTIAL |
 | `case_bio_crispr` | Biology | High | **PARTIAL** | Rank 22 | `markets` | HIT |
 | `case_bio_evoformer` | Biology | Low | **PARTIAL** | Rank 1 | `adversary` | HIT |
